@@ -1,0 +1,17 @@
+﻿@media (max-width: 600px) {
+    body {
+        background-color: lightgray; /* Thay đổi màu nền */
+    }
+
+    .header {
+        padding: 10px; /* Giảm padding của header */
+    }
+
+    .nav ul {
+        flex-direction: column; /* Đặt nav thành cột */
+    }
+
+    .icon {
+        font-size: 1.5em; /* Thay đổi kích thước icon */
+    }
+}
