@@ -38,20 +38,20 @@
 
         .nav a {
             text-decoration: none;
-            color: hotpink;
+            color: purple;
             font-size: 17px;
             font-weight: 600;
         }
 
     .header .nav a {
         text-decoration: none;
-        color: hotpink;
+        color: purple;
         font-size: 17px;
         margin-left: 20px;
         font-weight: 600;
     }
 
-    .header .search input {
+    .header input {
         background: no-repeat;
         font-size: 20px;
         border-radius: 5px;
@@ -59,20 +59,20 @@
         padding-left: 10px;
         padding-right: 100px;
         outline: none;
-        color: hotpink;
+        color: purple;
     }
 
-    .header .search {
+    .header {
         position: absolute;
         right: 110px;
         top: 40px;
-        color: hotpink;
+        color: purple;
     }
 
     .background {
         width: 100%;
         height: 100vh;
-        background-image: url('https://file.hstatic.net/1000246347/file/shutterstock_208511908_1024x1024.jpg');
+        background-image: url('https://cinestar.com.vn/assets/images/bg-regis.jpg');
         background-position: center;
         background-size: cover;
     }
@@ -84,7 +84,6 @@
         width: 75%;
         height: 75%;
         transform: translate(-50%, -50%);
-        background-image: url('https://file.hstatic.net/1000246347/file/shutterstock_208511908_1024x1024.jpg');
         background-position: center;
         background-size: cover;
         display: flex;
@@ -108,7 +107,7 @@
         .content a {
             position: relative;
             text-decoration: none;
-            color: hotpink;
+            color: purple;
             font-size: 3em;
             font-weight: 700;
             top: -40px;
@@ -118,20 +117,20 @@
         .content h2 {
             font-size: 3.5em;
             text-align: center;
-            color: hotpink;
+            color: purple;
         }
 
         .content h3 {
             font-size: 2em;
             text-align: center;
-            color: hotpink;
+            color: purple;
         }
 
         .content pre {
             margin-top: 20px;
             text-align: center;
             font-size: 1em;
-            color: hotpink;
+            color: purple;
         }
 
         .content .icon {
@@ -152,13 +151,16 @@
         position: relative;
         padding: 100px 30px;
         backdrop-filter: blur(20px);
+        border: 2px solid white; /* Thêm viền đen */
+        border-radius: 10px; /* Góc bo tròn nếu muốn */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Thêm bóng để nổi bật hơn */
     }
 
         .login h2 {
             font-size: 2em;
             text-align: center;
             margin-bottom: 20px;
-            color: hotpink;
+            color: purple;
         }
 
         .login .input {
@@ -167,15 +169,16 @@
             align-items: center;
             height: 30px;
             margin-bottom: 40px;
+
         }
 
             .login .input i {
                 margin-left: -20px;
                 margin-top: 60px;
-                position: relative;
-                right: auto;
-                bottom: 27px;
-                color: hotpink;
+                position: absolute;
+                right: 10px;
+                bottom: 5px;
+                color: purple;
                 cursor: pointer;
             }
 
@@ -189,27 +192,38 @@
                 border: none;
                 outline: none;
                 border-bottom: 2px solid #fff;
-                color: hotpink;
+                color: purple;
                 width: 100%;
                 height: 100%;
+
             }
 
-    .placeholder {
-        color: hotpink;
-        font-size: 18px;
+
+    .input .fa-times,
+    .input .fa-check {
+        display: none; /* Mặc định ẩn biểu tượng X và check */
     }
 
+        .input .fa-times.show,
+        .input .fa-check.show {
+            display: inline-block; /* Hiển thị khi cần thiết */
+        }
+
+    .placeholder {
+        color: purple;
+        font-size: 18px;
+    }
 
     .check {
         display: flex;
         justify-content: space-between;
         margin-bottom: 40px;
-        color: hotpink;
+        color: purple;
     }
 
         .check a {
             text-decoration: none;
-            color: hotpink;
+            color: purple;
         }
 
             .check a.hover {
@@ -225,7 +239,7 @@
     button {
         width: 100%;
         height: 40px;
-        background-color: hotpink;
+        background-color: purple;
         border: none;
         outline: none;
         font-size: 20px;
@@ -236,19 +250,36 @@
 
     .icon {
         display: flex; /* Sử dụng Flexbox */
-        justify-content: center; /* Căn giữa theo chiều ngang */
-        margin-top: 20px; /* Khoảng cách trên */
+        justify-content: center; /* Căn giữa các biểu tượng */
+        align-items: center; /* Căn giữa theo chiều dọc */
     }
 
         .icon i {
+            margin: 0 10px; /* Khoảng cách giữa các biểu tượng */
             font-size: 2em; /* Kích thước biểu tượng */
-            color: black !important; /* Màu sắc biểu tượng */
-            margin: 0 15px; /* Khoảng cách giữa các biểu tượng */
-            transition: transform 0.3s; /* Hiệu ứng chuyển tiếp khi hover */
+            transition: transform 0.3s; /* Hiệu ứng chuyển tiếp */
         }
 
             .icon i:hover {
-                transform: scale(1.5); /* Phóng to biểu tượng khi hover */
+                transform: scale(1.5); /* Phóng to khi hover */
+            }
+
+            .icon i.fa-facebook {
+                color: #4267B2;
+            }
+
+            .icon i.fa-twitter {
+                color: #1DA1F2;
+            }
+
+            .icon i.fa-instagram {
+                background: linear-gradient(to right, #405DE6, #E1306C, #FABC28);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .icon i.fa-telegram {
+                color: #0088cc;
             }
 
     .input i.fa-times,
@@ -262,25 +293,34 @@
 
     .login .sign-up {
         display: flex;
+        align-content: center;
         justify-content: center;
+        gap: 10px; /* Khoảng cách giữa các phần tử */
+        text-align: center;
+        margin-top:50px;
+        margin-left: 110px; /* Thêm margin để dịch chuyển sang phải */
     }
 
-        .login .sign-up a {
-            text-decoration: underline;
-            color: #fff;
-            font-weight: 700;
-        }
+    .signup-text {
+        color: white; /* Đặt màu chữ thành trắng */
+    }
 
-        .login .sign-up p {
-            color: #fff;
-        }
+    .login .sign-up a {
+        text-decoration: underline;
+        color: purple;
+        font-weight: 700;
+    }
+
+    .login .sign-up p {
+        color: #fff;
+    }
 
     .sign-up a hover {
         text-decoration: underline;
     }
 
     .input1:focus {
-        border-color: hotpink; /* Thay đổi màu viền khi tiêu điểm */
+        border-color: purple; /* Thay đổi màu viền khi tiêu điểm */
         outline: none; /* Bỏ viền mặc định */
     }
     /* Các quy tắc CSS khác */
@@ -301,16 +341,69 @@
         width: 90%; /* Mở rộng chiều rộng trên thiết bị di động */
         margin: 0 auto; /* Căn giữa */
     }
+    /* Animation chuyển trang */
+    .fade-out {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+    }
+
+        .fade-out.hidden {
+            opacity: 0;
+        }
+
+    #signUpMessage {
+        display: none;
+    }
+
+    #success-message {
+        display: flex; /* Sử dụng Flexbox */
+        flex-direction: column; /* Sắp xếp theo chiều dọc */
+        align-items: center; /* Căn giữa theo chiều ngang */
+        justify-content: center; /* Căn giữa theo chiều dọc */
+        text-align: center; /* Căn giữa văn bản */
+        margin-top: 20px; /* Thêm khoảng cách trên nếu cần */
+    }
+
+    #backToLogin {
+        margin-top: 10px; /* Khoảng cách giữa thông báo và nút */
+        display: block; /* Đảm bảo nút là một khối */
+        margin-left: auto; /* Tự động căn trái */
+        margin-right: auto; /* Tự động căn phải */
+    }
+    /*viền cho chữ*/
+    .logo {
+        font-size: 1em; /* Kích thước chữ */
+        color: purple; /* Màu chữ chính */
+        text-shadow: -2px -2px 0 #000, /* Viền đen bên trái trên */
+        2px -2px 0 #000, /* Viền đen bên phải trên */
+        -2px 2px 0 #000, /* Viền đen bên trái dưới */
+        2px 2px 0 #000; /* Viền đen bên phải dưới */
+    }
+    /*viền cho câu chào*/
+    .title, .subtitle, .greeting {
+        color: purple; /* Màu chữ chính */
+        text-shadow: -1px -1px 0 #000, /* Viền đen bên trái trên */
+        1px -1px 0 #000, /* Viền đen bên phải trên */
+        -1px 1px 0 #000, /* Viền đen bên trái dưới */
+        1px 1px 0 #000; /* Viền đen bên phải dưới */
+    }
+    /*chỉnh màu chỗ tên đăng nhập, mk*/
+    ::placeholder {
+        color: white; 
+    }
 </style>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="utf-8" />
     <title>Đăng Nhập</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel=" icon" href="~/Content/Img/download.png"
+          type="image/x-icon" />
+
 </head>
 <body>
     <div>
@@ -325,98 +418,153 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
-        <div class="search">
-            <input type="text" placeholder="Search...">
-            <a> <i class="fa-solid fa-magnifying-glass"></i></a>
-        </div>
     </header>
     <div class="background"></div>
     <section class="home">
         <div class="content">
-            <a href="#" class="logo"> StarLight </a>
-            <h2> Welcom!</h2>
-            <h3> To Our Nem Website </h3>
-            <pre> Chào Các Bạn </pre>
+            <a class=" logo"> StarLight </a>
+            <a1>
+                <h2 class="title">Welcome!</h2>
+            </a1>
             <div class="icon">
                 <i class="fa-brands fa-facebook"></i>
                 <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
+                <i class="fab fa-instagram"></i>
                 <i class="fa-brands fa-telegram"></i>
             </div>
         </div>
         <div class="login">
-
             <h2> Đăng Nhập</h2>
             <form id="loginForm">
                 <div class="input">
-                    <input type="email" id="email" class="input1" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+gmail\.com" title="Email must be in the format: example@gmail.com">
-                    <i class="fa-solid fa-envelope"></i> <!-- Biểu tượng email -->
-                    <i class="fa-solid fa-times" id="emailError" style="display: none; color: red;"></i> <!-- Biểu tượng dấu X -->
-                    <i class="fa-solid fa-check" id="emailSuccess" style="display: none; color: green;"></i> <!-- Biểu tượng dấu tích -->
+                    <input type="text" id="username" class="input1" placeholder="Tên Đăng Nhập" required>
+                </div>
+                <div class="input">
+                    <input type="password" id="password" class="input1" placeholder="Mật Khẩu" required>
+                    <i class="fa-solid fa-eye" id="togglePassword" style="cursor: pointer;"></i>
+                </div>
+                <div class="check">
+                    <label><input type="checkbox"> Nhớ tôi</label>
+                </div>
+                <div class="button" id="registerButtonContainer">
+                    <button class="btn" id="registerButton">Đăng Nhập</button>
+                </div>
+                <div class="input">
+                    <div class="sign-up" id="signUpMessage" style="display: block;">
+                        <span class="signup-text">Bạn chưa có tài khoản?</span>
+                        <span><a href="@Url.Action("Test2")">Đăng Ký</a></span>
+                    </div>
                 </div>
             </form>
-            <div class="input">
-                <input type="password" id="password" class="input1" placeholder="Password" required>
-                <i class="fa-solid fa-eye" id="togglePassword" style="cursor: pointer;"></i> <!-- Biểu tượng con mắt -->
-            </div>
-            <div class="check">
-                <label> <input type="checkbox"> Nhớ tui </label>
-                <a href="#"> Quên mật khẩu</a>
-            </div>
-            <div class="button">
-                <button class="btn"> Sign In</button>
-            </div>
-            <div class="sign-up">
-                <p>Bạn chưa đăng ký tài khoản?</p>
-                <p> <a href="@Url.Action("Test2")">Đăng Ký</a></p>
-            </div>
         </div>
     </section>
     <script>
-		const togglePassword = document.getElementById('togglePassword');
-		const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
 
-		togglePassword.addEventListener('click', function () {
-			// Chuyển đổi type giữa 'password' và 'text'
-			const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-			passwordInput.setAttribute('type', type);
+        togglePassword.addEventListener('click', function () {
+            // Chuyển đổi type giữa 'password' và 'text'
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
 
-			// Thay đổi biểu tượng con mắt
-			this.classList.toggle('fa-eye-slash');
-		});
+            // Thay đổi biểu tượng con mắt
+            this.classList.toggle('fa-eye-slash');
+        });
     </script>
     <script>
-		const form = document.getElementById('loginForm');
-		const emailInput = document.getElementById('email');
-		const emailErrorIcon = document.getElementById('emailError');
-		const emailSuccessIcon = document.getElementById('emailSuccess');
+        const emailInput = document.getElementById('email');
+        const emailErrorIcon = document.getElementById('emailError'); // Biểu tượng X
+        const emailSuccessIcon = document.getElementById('emailSuccess'); // Biểu tượng check
+        // Kiểm tra định dạng email ngay khi người dùng nhập
+        emailInput.addEventListener('input', function () {
+            const emailValue = emailInput.value;
 
-		form.addEventListener('submit', function (event) {
-			const emailValue = emailInput.value;
+            // Kiểm tra nếu email không chứa gmail.com
+            if (!emailValue.endsWith('gmail.com')) {
+                // Hiển thị biểu tượng X nếu email không hợp lệ
+                emailErrorIcon.style.display = 'inline';
+                emailSuccessIcon.style.display = 'none';
+            } else {
+                // Hiển thị biểu tượng check nếu email hợp lệ
+                emailSuccessIcon.style.display = 'inline';
+                emailErrorIcon.style.display = 'none';
+            }
+        });
 
-			// Kiểm tra nếu email không chứa gmail.com
-			if (!emailValue.endsWith('gmail.com')) {
-				alert('Please enter a valid email address ending with gmail.com');
-				emailErrorIcon.style.display = 'inline'; // Hiển thị biểu tượng dấu X
-				emailSuccessIcon.style.display = 'none'; // Ẩn biểu tượng dấu tích
-				event.preventDefault(); // Ngăn chặn việc gửi form
-			} else {
-				emailErrorIcon.style.display = 'none'; // Ẩn biểu tượng dấu X
-				emailSuccessIcon.style.display = 'inline'; // Hiển thị biểu tượng dấu tích
-			}
-		});
-
-		// Kiểm tra định dạng email ngay khi người dùng nhập
-		emailInput.addEventListener('input', function () {
-			if (!emailInput.value.endsWith('gmail.com')) {
-				emailErrorIcon.style.display = 'inline'; // Hiển thị biểu tượng dấu X
-				emailSuccessIcon.style.display = 'none'; // Ẩn biểu tượng dấu tích
-			} else {
-				emailErrorIcon.style.display = 'none'; // Ẩn biểu tượng dấu X
-				emailSuccessIcon.style.display = 'inline'; // Hiển thị biểu tượng dấu tích
-			}
-		});
+        // Kiểm tra định dạng email ngay khi người dùng nhập
+        emailInput.addEventListener('input', function () {
+            if (!emailInput.value.endsWith('gmail.com')) {
+                emailErrorIcon.style.display = 'inline'; // Hiển thị biểu tượng dấu X
+                emailSuccessIcon.style.display = 'none'; // Ẩn biểu tượng dấu tích
+            } else {
+                emailErrorIcon.style.display = 'none'; // Ẩn biểu tượng dấu X
+                emailSuccessIcon.style.display = 'inline'; // Hiển thị biểu tượng dấu tích
+            }
+        });
     </script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const emailErrorIcon = document.getElementById('emailError');
+            const emailSuccessIcon = document.getElementById('emailSuccess');
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+            const registerButtonContainer = document.getElementById('registerButtonContainer'); // Phần tử chứa nút đăng ký
+            const backToLoginButton = document.getElementById('backToLogin'); // Nút quay lại
+            const signUpMessage = document.getElementById('signUpMessage'); // Phần câu hỏi và liên kết đăng nhập
 
+            errorMessage.style.display = 'none'; // Ẩn thông báo lỗi ban đầu
+            successMessage.style.display = 'none'; // Ẩn thông báo thành công
+            backToLoginButton.style.display = 'none'; // Ẩn nút quay lại ban đầu
+            signUpMessage.style.display = 'block';
+
+            let isValid = true; // Biến để kiểm tra tính hợp lệ
+
+            // Kiểm tra tên đăng nhập
+            if (username.trim() === "") {
+                errorMessage.textContent = "Tên đăng nhập không được để trống.";
+                isValid = false;
+            }
+
+            // Kiểm tra email
+            if (!email.endsWith('gmail.com')) {
+                errorMessage.textContent = "Email phải kết thúc bằng gmail.com.";
+                emailErrorIcon.style.display = 'inline';
+                emailSuccessIcon.style.display = 'none';
+                isValid = false;
+            } else {
+                emailErrorIcon.style.display = 'none';
+                emailSuccessIcon.style.display = 'inline';
+            }
+
+            // Kiểm tra mật khẩu
+            if (password.length < 6) {
+                errorMessage.textContent = "Mật khẩu phải có ít nhất 6 ký tự.";
+                isValid = false;
+            }
+
+            // Nếu không hợp lệ, ngăn gửi biểu mẫu
+            if (!isValid) {
+                event.preventDefault(); // Ngăn không gửi biểu mẫu
+                errorMessage.style.display = 'block'; // Hiển thị thông báo lỗi
+            } else {
+                // Nếu hợp lệ, hiển thị thông báo thành công
+                event.preventDefault(); // Ngăn không gửi biểu mẫu để xử lý chuyển hướng
+                successMessage.style.display = 'block'; // Hiển thị thông báo thành công
+
+                // Ẩn nút đăng ký và hiển thị nút quay lại
+                registerButtonContainer.style.display = 'none'; // Ẩn nút đăng ký
+                signUpMessage.style.display = 'none'; // Ẩn phần câu hỏi và liên kết
+                backToLoginButton.style.display = 'block'; // Hiển thị nút quay lại
+
+                // Thêm sự kiện cho nút quay lại
+                backToLoginButton.addEventListener('click', function () {
+                    window.location.href = "@Url.Action("Test2")"; // Thay đổi đường dẫn này thành đường dẫn trang đăng nhập của bạn
+                });
+            }
+        });
+    </script>
 </body>
 </html>
