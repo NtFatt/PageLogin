@@ -6,35 +6,7 @@
         padding: 0;
         box-sizing: border-box;
         font-family: 'Poppins',sans-serif;
-    }
-    /*      Trang đăng nhập */
-    .header {
-        position: fixed;
-        width: 100%;
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 5%;
-        z-index: 99;
-        background: transparent;
-    }
-
-    .nav {
-        display: flex;
-        align-items: center; /* Căn giữa theo chiều dọc */
-    }
-
-        .nav ul {
-            display: flex; /* Sắp xếp các mục theo chiều ngang */
-            list-style: none; /* Loại bỏ dấu đầu dòng */
-            padding: 0; /* Bỏ padding mặc định */
-            margin: 0; /* Bỏ margin mặc định */
-        }
-
-        .nav li {
-            margin-left: 20px; /* Khoảng cách giữa các mục */
-        }
+         }
 
         .nav a {
             text-decoration: none;
@@ -43,7 +15,7 @@
             font-weight: 600;
         }
 
-    .header .nav a {
+     .nav a {
         text-decoration: none;
         color: purple;
         font-size: 17px;
@@ -51,7 +23,7 @@
         font-weight: 600;
     }
 
-    .header input {
+     input {
         background: no-repeat;
         font-size: 20px;
         border-radius: 5px;
@@ -62,12 +34,6 @@
         color: purple;
     }
 
-    .header {
-        position: absolute;
-        right: 110px;
-        top: 40px;
-        color: purple;
-    }
 
     .background {
         width: 100%;
@@ -107,7 +73,7 @@
         .content a {
             position: relative;
             text-decoration: none;
-            color: purple;
+            color: white;
             font-size: 3em;
             font-weight: 700;
             top: -40px;
@@ -117,7 +83,7 @@
         .content h2 {
             font-size: 3.5em;
             text-align: center;
-            color: purple;
+            color: white;
         }
 
         .content h3 {
@@ -144,7 +110,7 @@
                 margin-left: 20px;
                 color: #fff;
             }
-
+     /*MÀU CODE*/
     .login {
         width: 100%; /* Đặt chiều rộng là 100% */
         max-width: 100%; /* Đặt chiều rộng tối đa */
@@ -160,7 +126,7 @@
             font-size: 2em;
             text-align: center;
             margin-bottom: 20px;
-            color: purple;
+            color: white;
         }
 
         .login .input {
@@ -192,7 +158,7 @@
                 border: none;
                 outline: none;
                 border-bottom: 2px solid #fff;
-                color: purple;
+                color: white;
                 width: 100%;
                 height: 100%;
 
@@ -325,9 +291,6 @@
     }
     /* Các quy tắc CSS khác */
 
-    .header {
-        padding: 20px 10px; /* Điều chỉnh padding */
-    }
 
     .content h2 {
         font-size: 2.5em; /* Giảm kích thước chữ */
@@ -409,16 +372,6 @@
     <div>
         @RenderBody()
     </div>
-    <header class="header">
-        <nav class="nav">
-            <ul>
-                <li><a href="~/Home/Contact">Liên hệ</a></li>
-                <li><a href="~/Home/About">About</a></li>
-                <li><a href="#">Service</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
     <div class="background"></div>
     <section class="home">
         <div class="content">
@@ -452,7 +405,7 @@
                 <div class="input">
                     <div class="sign-up" id="signUpMessage" style="display: block;">
                         <span class="signup-text">Bạn chưa có tài khoản?</span>
-                        <span><a href="@Url.Action("Test2")">Đăng Ký</a></span>
+                        <span><a href="@Url.Action("Register")">Đăng Ký</a></span>
                     </div>
                 </div>
             </form>

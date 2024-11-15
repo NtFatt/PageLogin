@@ -8,24 +8,32 @@ namespace NguyenThanhPhat_KtrFE.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Test()
+        public ActionResult Login()
         {
             return View();
         }
-        public ActionResult Test2()
+        public ActionResult Logout()
         {
             return View();
         }
-        public ActionResult Test3()
+        public ActionResult Register()
         {
             return View();
         }
-        public ActionResult About()
+        public ActionResult SapChieu()
         {
-            ViewBag.Message = "Your application description page.";
+            return View();
+        }
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+        public ActionResult ChangeInfo()
+        {
+            return View();
+        }
 
-            return View();
-        }
+
 
         public ActionResult Contact()
         {

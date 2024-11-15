@@ -8,22 +8,6 @@
         font-family: 'Poppins',sans-serif;
     }
     /*      Trang đăng nhập */
-    .header {
-        position: fixed;
-        width: 100%;
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 5%;
-        z-index: 99;
-        background: transparent;
-    }
-
-    .nav {
-        display: flex;
-        align-items: center; /* Căn giữa theo chiều dọc */
-    }
 
         .nav ul {
             display: flex; /* Sắp xếp các mục theo chiều ngang */
@@ -43,7 +27,7 @@
             font-weight: 600;
         }
 
-    .header .nav a {
+     .nav a {
         text-decoration: none;
         color: purple ;
         font-size: 17px;
@@ -51,7 +35,7 @@
         font-weight: 600;
     }
 
-    .header  input {
+      input {
         background: no-repeat;
         font-size: 20px;
         border-radius: 5px;
@@ -62,12 +46,6 @@
         color: purple ;
     }
 
-    .header  {
-        position: absolute;
-        right: 110px;
-        top: 40px;
-        color: purple ;
-    }
 
     .background {
         width: 100%;
@@ -106,15 +84,6 @@
         z-index: 10;
     }
 
-    .toggle-button {
-        background-color: purple ;
-        color: white;
-        border: none;
-        padding: 10px;
-        border-radius: 50%; /* Nút tròn */
-        cursor: pointer;
-        font-size: 1.5em; /* Tăng kích thước biểu tượng */
-    }
 
     .info-links {
         display: flex; /* Sử dụng Flexbox để hiển thị hàng ngang */
@@ -151,7 +120,7 @@
         .content a {
             position: relative;
             text-decoration: none;
-            color: purple ;
+            color: white;
             font-size: 3em;
             font-weight: 700;
             top: -40px;
@@ -161,7 +130,7 @@
         .content h2 {
             font-size: 3.5em;
             text-align: center;
-            color: purple ;
+            color: white ;
         }
 
         .content h3 {
@@ -189,7 +158,7 @@
                 color: #fff;
             }
 
-    .login {
+    .register {
         width: 100%; /* Đặt chiều rộng là 100% */
         max-width: 100%; /* Đặt chiều rộng tối đa */
         position: relative;
@@ -199,14 +168,14 @@
         border-radius: 10px; /* Để viền có góc bo tròn nếu muốn */
     }
 
-        .login h2 {
+        .register h2 {
             font-size: 2em;
             text-align: center;
             margin-bottom: 20px;
-            color: purple ;
+            color: white ;
         }
 
-        .login .input {
+        .register .input {
             position: relative;
             display: flex;
             align-items: center;
@@ -214,7 +183,7 @@
             margin-bottom: 40px;
         }
 
-            .login .input i {
+            .register .input i {
                 margin-left: -20px;
                 margin-top: 60px;
                 position: absolute;
@@ -224,7 +193,7 @@
                 cursor: pointer;
             }
 
-            .login .input .input1 {
+            .register .input .input1 {
                 font-size: 16px;
                 display: flex;
                 flex-direction: column;
@@ -234,7 +203,7 @@
                 border: none;
                 outline: none;
                 border-bottom: 2px solid #fff;
-                color: purple ;
+                color: white;
                 width: 100%;
                 height: 100%;
             }
@@ -275,7 +244,7 @@
                 text-decoration: underline;
             }
 
-    .login .button {
+    .register .button {
         width: 100%;
         height: 40px;
         margin-bottom: 15px;
@@ -292,6 +261,7 @@
         border-radius: 7px;
         color: #fff;
     }
+    /*MÀU ICON*/
             .icon {
         display: flex; /* Sử dụng Flexbox */
         justify-content: center; /* Căn giữa các biểu tượng */
@@ -332,7 +302,7 @@
         font-size: 25px;
     }
 
-    .login .sign-up {
+    .register .sign-up {
         display: flex;
         align-content: center;
         justify-content: center;
@@ -343,13 +313,13 @@
         color: white; /* Đặt màu chữ thành trắng */
     }
 
-        .login .sign-up a {
+        .register .sign-up a {
             text-decoration: underline;
             color: purple ;
             font-weight: 700;
         }
 
-        .login .sign-up p {
+        .register .sign-up p {
             color: #fff;
         }
 
@@ -375,7 +345,7 @@
         font-size: 1.8em; /* Giảm kích thước chữ */
     }
 
-    .login {
+    .register {
         width: 90%; /* Mở rộng chiều rộng trên thiết bị di động */
         margin: 0 auto; /* Căn giữa */
     }
@@ -399,7 +369,7 @@
         text-align: center; /* Căn giữa văn bản */
         margin-top: 20px; /* Thêm khoảng cách trên nếu cần */
     }
-    #backToLogin {
+    #backToregister {
         margin-top: 10px; /* Khoảng cách giữa thông báo và nút */
         display: block; /* Đảm bảo nút là một khối */
         margin-left: auto; /* Tự động căn trái */
@@ -408,7 +378,7 @@
     /*viền cho chữ*/
     .logo {
         font-size: 1em; /* Kích thước chữ */
-        color: purple ; /* Màu chữ chính */
+        color: white; /* Màu chữ chính */
         text-shadow: 
         -2px -2px 0 #000, /* Viền đen bên trái trên */
         2px -2px 0 #000, /* Viền đen bên phải trên */
@@ -446,20 +416,10 @@
         @RenderBody()
     </div>
 
-    <div class="info-section">
-        <button class="toggle-button">
-            <i class="fa-solid fa-bars"></i> <!-- Chỉ hiển thị biểu tượng -->
-        </button>
-        <ul class="info-links">
-            <li><a href="~/Home/About">About</a></li>
-            <li><a href="~/Home/Service">Service</a></li>
-            <li><a href="~/Home/Contact">Contact</a></li>
-        </ul>
-    </div>
     <div class="background"></div>
     <section class="home">
         <div class="content">
-            <a class=" logo"> StarLight </a>
+            <a class="logo"> StarLight </a>
             <a1>
                 <h2 class="title">Welcome!</h2>
             </a1>
@@ -470,10 +430,9 @@
                 <i class="fa-brands fa-telegram"></i>
             </div>
         </div>
-        <!-- Mục About, Service, Contact -->
-        <div class="login">
+        <div class="register">
             <h2> Đăng Ký</h2>
-            <form id="loginForm">
+            <form id="registerForm">
                 <div class="input">
                     <input type="text" id="username" class="input1" placeholder="Tên Đăng Nhập" required>
                 </div>
@@ -504,7 +463,7 @@
                 </div>
                 <div class="sign-up" id="signUpMessage" style="display: block;">
                     <span class="signup-text">Bạn đã có tài khoản?</span>
-                    <span><a href="@Url.Action("Test")">Đăng Nhập</a></span>
+                    <span><a href="@Url.Action("Login")">Đăng Nhập</a></span>
                 </div>
 
             </form>
@@ -615,17 +574,6 @@
                 backToLoginButton.addEventListener('click', function () {
                     window.location.href = "@Url.Action("Test")"; // Thay đổi đường dẫn này thành đường dẫn trang đăng nhập của bạn
                 });
-            }
-        });
-    </script>
-    @*Mục about, service, contact*@
-    <script>
-        document.querySelector('.toggle-button').addEventListener('click', function () {
-            const infoLinks = document.querySelector('.info-links');
-            if (infoLinks.style.display === 'none' || infoLinks.style.display === '') {
-                infoLinks.style.display = 'flex'; // Hiện menu
-            } else {
-                infoLinks.style.display = 'none'; // Ẩn menu
             }
         });
     </script>

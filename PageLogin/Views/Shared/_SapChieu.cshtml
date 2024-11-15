@@ -1,4 +1,6 @@
-﻿
+﻿@{
+    Layout = null;
+}
 <style type="text/css">
     /* Đặt lại khoảng cách và biên mặc định */
     * {
@@ -45,7 +47,7 @@
             }
 
                 .right-social ul li a:hover {
-                    color: purple;
+                    color: #c06c84
                 }
 
     /* Phần liên kết bên trái */
@@ -66,14 +68,14 @@
             }
 
                 .left-text ul li a.btn {
-                    background-color: purple; /* Màu nền tím cho nút */
+                    background-color: #c06c84; /* Màu nền cam cho nút */
                     padding: 5px 10px; /* Khoảng cách trong của nút */
                     border-radius: 5px; /* Bo tròn góc nút */
                     color: white;
                 }
 
                     .left-text ul li a.btn:hover {
-                        background-color: rebeccapurple; /* Màu khi hover trên nút */
+                        background-color: #e69500; /* Màu khi hover trên nút */
                     }
     /* Logo */
     .logo img {
@@ -113,7 +115,7 @@
             }
 
                 .main-nav ul li a:hover {
-                    background-color: mediumpurple; /* Màu nền khi hover */
+                    background-color: #c06c84; /* Màu nền khi hover */
                     color: white; /* Màu chữ khi hover */
                 }
 
@@ -127,13 +129,8 @@
                 transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển màu */
             }
 
-            .main-nav ul li a {
-                display: inline-block; /* Để áp dụng padding và border-radius */
-                padding: 10px 15px; /* Thêm padding cho các mục */
-                border-radius: 5px; /* Bo góc */
-            }
                 .main-nav ul li a:hover {
-                    background-color: purple; /* Màu nền khi hover */
+                    background-color: #c06c84; /* Màu nền khi hover */
                     color: white; /* Màu chữ khi hover */
                 }
 
@@ -407,10 +404,6 @@
     /* Tạo khung nền đen cho tất cả các movie */
     /* Container for the movie list */
     /* Khung chứa danh sách phim */
-    .black-wrapper {
-        background-color: rgba(0, 0, 0, 0.1); /* Màu nền đen */
-        padding: 30px; /* Khoảng cách xung quanh nội dung */
-    }
 
     .movie-list {
         display: flex;
@@ -427,32 +420,129 @@
         flex-wrap: wrap; /* Đảm bảo các banner có thể xuống dòng nếu không đủ không gian */
     }
     /* Cấu trúc của mỗi thẻ phim */
-    .movie /* là lớp CSS cho từng thẻ phim.*/ {
-        flex: 1 1 21%; /* Chiếm khoảng 23% hàng, để tạo khoảng cách giữa các thẻ */
-        text-align: center;
-        background-color: #f9f9f9; /* thiết lập màu nền cho thẻ phim là màu xám nhạt. */
-        padding: 10px; /*tạo khoảng đệm bên trong thẻ phim.*/
+    .movie { /* Là lớp CSS cho từng thẻ phim. */
+        flex: 1 1 23%; /* Chiếm khoảng 23% chiều rộng, tạo khoảng cách giữa các thẻ */
+        text-align: center; /* Căn giữa nội dung */
+        background-color: #f9f9f9; /* Màu nền cho thẻ phim */
+        padding: 10px; /* Khoảng đệm bên trong thẻ phim */
+        position: relative; /* Giữ vị trí cho phần tử con có thể sử dụng vị trí tuyệt đối */
+        overflow: hidden; /* Ẩn phần dư thừa bên ngoài khung */
+        cursor: pointer; /* Đổi chuột thành hình bàn tay khi di chuột qua */
     }
+
+        .movie:hover .movie-info {
+            opacity: 1;
+        }
 
         /* Cấu trúc hình ảnh */
         .movie img {
             width: 100%;
             height: auto;
+            display: block;
+            transition: transform 0.3s ease;
         }
 
         /* Tùy chọn kiểu chữ */
         .movie h3 {
-            font-size: 1.1em; /*đặt kích thước font là 1.1 lần kích thước chuẩn.*/
-            margin: 10px 0 5px; /*thiết lập khoảng cách bên trên là 10px và bên dưới là 5px.*/
-            color: #333;
+            font-size: 1.1em; /* Đặt kích thước font là 1.1 lần kích thước chuẩn */
+            margin: 10px 0 10px; /* Thiết lập khoảng cách bên trên là 10px và bên dưới là 10px */
+            color: #000; /* Màu chữ đen cho tiêu đề */
             font-weight: bold;
         }
 
         .movie p {
-            font-size: 0.9em;
-            color: orangered;
-            margin: 5px 0;
+            font-size: 0.9em; /* Kích thước chữ cho các đoạn văn */
+            color: #800080; /* Màu chữ tím cho đoạn văn */
+            margin: 5px 0; /* Khoảng cách giữa các đoạn văn */
         }
+
+    .movie-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Màu nền tối nhưng trong hơn */
+        color: #fff; /* Màu chữ trắng */
+        display: flex;
+        flex-direction: column; /* Sắp xếp theo cột */
+        align-items: flex-start; /* Căn lề trái */
+        justify-content: flex-start; /* Căn đầu lên trên */
+        opacity: 0; /* Ẩn bảng thông tin mặc định */
+        transition: opacity 0.3s ease; /* Hiệu ứng chuyển động khi hiện bảng */
+        text-align: left; /* Căn lề trái cho nội dung */
+        padding: 10px 15px; /* Thay đổi padding để tạo không gian bên trong */
+        overflow-y: auto; /* Cho phép cuộn nếu nội dung quá dài */
+        z-index: 2; /* Đặt z-index cao hơn */
+    }
+
+        .movie-info h4 {
+            font-size: 1.2em;
+            margin: 0; /* Giảm khoảng cách giữa các dòng */
+            line-height: 1; /* Điều chỉnh line-height để giảm khoảng cách giữa các dòng */
+        }
+
+        .movie-info p {
+            font-size: 1em;
+            margin: 0; /* Đặt margin về 0 để dồn lên trên */
+            line-height: 1; /* Điều chỉnh line-height để giảm khoảng cách giữa các dòng */
+            color: white;
+            margin-top: 5px; /* Điều chỉnh khoảng cách theo nhu cầu */
+            padding-top: 5px; /* Giảm khoảng cách từ trên xuống */
+        }
+
+        .movie-info strong {
+            margin: 0; /* Đặt margin về 0 để dồn lên trên */
+            line-height: 1; /* Điều chỉnh line-height để giảm khoảng cách giữa các dòng */
+            color: #800080;
+            font-weight: bold;
+            display: block; /* Đảm bảo mỗi phần tử strong nằm trên một dòng mới */
+            margin-top: 5px; /* Giảm khoảng cách giữa strong và các phần tử khác */
+        }
+
+        .movie-info button {
+            background-color: #f39c12; /* Màu nền của nút */
+            color: #fff; /* Màu chữ của nút */
+            border: none; /* Không có đường viền */
+            padding: 8px 12px; /* Khoảng cách bên trong nút */
+            margin: 5px; /* Khoảng cách bên ngoài nút */
+            border-radius: 4px; /* Bo góc nút */
+            cursor: pointer; /* Hiển thị con trỏ tay khi hover */
+        }
+
+    /* Hiệu ứng hover */
+    .movie:hover .movie-info {
+        opacity: 1;
+    }
+
+    .amy-movie-item-button a {
+        background-color: #800080; /* Nền màu tím đậm */
+        color: white; /* Màu chữ trắng */
+        padding: 10px 15px; /* Khoảng cách bên trong để tăng kích thước khu vực nhấn */
+        border-radius: 5px; /* Các góc bo tròn */
+        text-decoration: none; /* Bỏ gạch chân */
+        display: inline-block; /* Hiển thị nút dưới dạng khối ngang */
+        margin-top: 10px; /* Khoảng cách phía trên giữa các nút */
+        transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền mượt mà khi hover */
+    }
+
+        .amy-movie-item-button a:hover {
+            background-color: #c06c84; /* Màu tím nhạt hơn khi di chuột qua */
+        }
+    .icon {
+        display: flex; /* Sử dụng Flexbox */
+        justify-content: center; /* Căn giữa các biểu tượng */
+        align-items: center; /* Căn giữa theo chiều dọc */
+    }
+        .icon i {
+            margin: 0 5px; /* Khoảng cách giữa các biểu tượng */
+            font-size: 1.2em; /* Kích thước biểu tượng */
+            transition: transform 0.3s; /* Hiệu ứng chuyển tiếp */
+        }
+            .icon i:hover {
+                transform: scale(1.5); /* Phóng to khi hover */
+            }
+
 </style>
 <!DOCTYPE html>
 <html lang="vi">
@@ -462,34 +552,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/site.css" />
-    <title>@ViewBag.Title</title>
     <link rel=" icon" href="~/Content/Img/download.png"
-    type="image/x-icon"/>
+          type="image/x-icon" />
+
 </head>
 <body>
     <div>
         @RenderBody()
     </div>
-
     <!-- Thanh đen trên cùng -->
     <div class="header-top">
         <div class="container">
-            <!-- Phần mạng xã hội bên phải -->
+            <!-- Phần mạng xã hội bên trái -->
             <div class="right-social">
-                <ul>
-                    <li><i class="fab fa-facebook-square" style="color: #4267B2;"></i></li>
-                    <li><i class="fab fa-twitter-square" style="color: #1DA1F2;"></i></li>
-                    <li><i class="fab fa-google-plus-square" style="color: #DB4437;"></i></li>
-                    <li><i class="fab fa-instagram-square" style=" background: linear-gradient(to right, #405DE6, #E1306C, #FABC28);"></i></li>
-                    <li><i class="fab fa-pinterest-square" style="color: #E60023;"></i></li>
-                </ul>
+                <div class="icon">
+                    <i class="fab fa-facebook-square" style="color: #c06c84;"></i>
+                    <i class="fab fa-twitter-square" style="color: #c06c84;"></i>
+                    <i class="fab fa-google-plus-square" style="color: #c06c84;"></i>
+                    <i class="fab fa-instagram-square" style="color: #c06c84;"></i>
+                    <i class="fab fa-pinterest-square" style="color: #c06c84;"></i>
+                </div>
             </div>
             <!-- Phần liên kết bên trái -->
             <div class="left-text">
                 <ul>
                     <li><a href="~/Home/FAQ">FAQ's</a></li>
-                    <li><a href="~/User/Login" class="btn">Đăng Nhập</a></li>
-                    <li><a href="~/User/Resgiter" class="btn">Đăng Ký</a></li>
+                    <li><a href="@Url.Action("Test")" class="btn">Đăng Nhập</a></li>
+                    <li><a href="@Url.Action("Test2")" class="btn">Đăng Ký</a></li>
                 </ul>
             </div>
         </div>
@@ -498,7 +587,7 @@
     <!-- Logo và thanh menu -->
     <div class="logo">
         <div class="container">
-            <img src="https://starlight.vn/Content/img/logo.png" alt="Logo Starlight" />
+            <img src="~/Content/Img/logo.png"   alt="Logo Starlight" />
             <nav class="main-nav">
                 <ul>
                     <li><a href="~/Home/Home">Trang Chủ</a></li>
@@ -513,14 +602,157 @@
         </div>
     </div>
     <main>
-        @*Phần phim*@
-        <div class="black-wrapper">
-            <section class="movie-list-page">
-                <div class="movie-container">
-                
+        <section class="movie-list-page">
+            <div class="movie-container">
+                @*ĐỪNG BUÔNG TAY*@
+                <div class="movie">
+                    <img src="https://starlight.vn/Areas/Admin/Content/Fileuploads/images/Poster2024/DUNG-BUONG-TAY.jpg"
+                         alt="Đừng Buông Tay">
+                    <h3>ĐỪNG BUÔNG TAY</h3>
+                    <p>Kinh Dị</p>
+                    <div class="movie-info">
+                        <h4>ĐỪNG BUÔNG TAY</h4> <br />
+                        <p>Kinh Dị</p> <br />
+                        <strong>🕘 1 giờ 11 phút</strong> <br />
+                        <p>
+                            Một ngôi nhà chứa đầy bùa chú là nơi an toàn cuối cùng để tránh xa lũ quỷ trong thế giới hậu tận thế đáng sợ.
+                            Một người mẹ và 2 đứa con nhỏ phải kết nối với ngôi nhà bằng sợi dây thừng linh thiêng để sinh tồn nơi rừng rậm,
+                            nơi hai thực thể ác độc Kẻ Xấu và Kẻ Xa Lạ có thể tước đoạt mạng người trong một phút buông tay.
+                        </p>
+                        <div class="amy-movie-item-button">
+                            <a href="https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=2T_mKyH17mY" class="fancybox.iframe amy-fancybox play-video">
+                                <i aria-hidden="true" class="fa fa-play"></i> Trailer
+                            </a>
+                            <a>
+                                <i class="fa fa-ticket"></i> Đặt vé
+                            </a>
+                            <a href="https://starlight.vn/film/dung-buong-tay/fd8b945e-f28a-41a3-8876-bc55333f1eca.html">
+                                <i aria-hidden="true" class="fa fa-eye"></i> Chi tiết
+                            </a>
+                        </div>
+                        <strong>Đạo diễn</strong>
+                        <p>Alexandre Aja</p>
+                        <strong>Diễn viên</strong>
+                        <p> Halle Berry Anthony B. Jenkins Stephanie Lavigne</p>
+                    </div>
                 </div>
-            </section>
-        </div>
+                @*MẬT MÃ ĐỎ*@
+                <div class="movie">
+                    <img src="https://starlight.vn/Areas/Admin/Content/Fileuploads/images/Poster2024/MAT-MA-DO.jpg"
+                         alt="MẬT MÃ ĐỎ">
+                    <h3>MẬT MÃ ĐỎ</h3>
+                    <p>Tình Cảm</p>
+                    <div class="movie-info">
+                        <h4>MẬT MÃ ĐỎ (T13)</h4> <br />
+                        <p>
+                            Hài - 2D/p> <br />
+                            <strong>🕘 1 giờ 30 phút</strong> <br />
+                        <p>
+                            Sau khi Ông già Noel (mật danh: Red One) bị bắt cóc,
+                            Trưởng An ninh Bắc Cực (Dwayne Johnson) phải hợp tác với
+                            thợ săn tiền thưởng khét tiếng nhất thế giới (Chris Evans)
+                            rong một nhiệm vụ kịch tính xuyên lục địa để giải cứu Giáng Sinh.
+                        </p>
+                        <div class="amy-movie-item-button">
+                            <a href="/film/movie1.html" class="movies-btn-icon-text link-detail amy-fancybox">
+                                <i class="fa fa-ticket"></i> Đặt vé
+                            </a>
+                            <a href="https://youtu.be/2T_mKyH17mY?si=jnhJ_6lxU707uQWe" class="fancybox.iframe amy-fancybox play-video">
+                                <i aria-hidden="true" class="fa fa-play"></i> Trailer
+                            </a>
+                        </div>
+                        <strong>Đạo diễn</strong>
+                        <p>Hài - 2D</p>
+                        <strong>Diễn viên</strong>
+                        <p>Dwayne Johnson; Chris Evans; Lucy Liu</p>
+                    </div>
+                </div>
+                @*VÕ SĨ GIÁC ĐẤU II*@
+                <div class="movie">
+                    <img src="https://starlight.vn/Areas/Admin/Content/Fileuploads/images/Poster2024/VO-SI-GIAC-DAU-2.jpg"
+                         alt="VÕ SĨ GIÁC ĐẤU II">
+                    <h3>
+                        VÕ SĨ GIÁC ĐẤU II
+                    </h3>
+                    <p>Hành Động</p>
+                    <div class="movie-info">
+                        <h4>VÕ SĨ GIÁC ĐẤU II (T18)</h4> <br />
+                        <p>Hành Động, Lịch Sử - 2D </p> <br />
+                        <strong>🕘 1 giờ 30 phút</strong> <br />
+                        <p>
+                            Sau khi đánh mất quê hương vào tay hoàng đế bạo chúa – người đang cai trị Rome,
+                            Lucius trở thành nô lệ giác đấu trong đấu trường Colosseum
+                            và phải tìm kiếm sức mạnh từ quá khứ để đưa vinh quang trở lại cho người dân Rome.
+                        </p>
+                        <div class="amy-movie-item-button">
+                            <a href="/film/movie1.html" class="movies-btn-icon-text link-detail amy-fancybox">
+                                <i class="fa fa-ticket"></i> Đặt vé
+                            </a>
+                            <a href="https://youtu.be/2T_mKyH17mY?si=jnhJ_6lxU707uQWe" class="fancybox.iframe amy-fancybox play-video">
+                                <i aria-hidden="true" class="fa fa-play"></i> Trailer
+                            </a>
+                        </div>
+                        <strong>Đạo diễn</strong>
+                        <p>Ridley Scott</p>
+                        <strong>Diễn viên</strong>
+                        <p>Dwayne Johnson; Chris Evans; Lucy Liu</p>
+                    </div>
+                </div>
+                @*LINH MIÊU*@
+                <div class="movie">
+                    <img src="https://starlight.vn/Areas/Admin/Content/Fileuploads/images/Poster2024/LINH-MIU.jpg"
+                         alt="LINH MIÊU">
+                    <h3>
+                        LINH MIÊU
+                    </h3>
+                    <p>Kinh Dị - 2D</p>
+                    <div class="movie-info">
+                        <h4>LINH MIÊU (T18)</h4> <br />
+                        <p> Kinh Dị - 2D </p> <br />
+                        <strong>🕘 1 giờ 30 phút</strong> <br />
+                        <p>
+                            Linh Miêu: Quỷ Nhập Tràng lấy cảm hứng từ truyền thuyết dân gian về “quỷ nhập tràng” để xây dựng cốt truyện.
+                            Phim lồng ghép những nét văn hóa đặc trưng của Huế như nghệ thuật khảm sành - một văn hóa đặc sắc của thời nhà Nguyễn,
+                            đề cập đến các vấn đề về giai cấp và quan điểm trọng nam khinh nữ.
+                            Đặc biệt, hình ảnh rước kiệu thây ma và những hình nhân giấy không chỉ biểu trưng cho tai ương hay điềm dữ mà còn là hiện thân của nghiệp quả.
+                        </p>
+                        <div class="amy-movie-item-button">
+                            <a href="/film/movie1.html" class="movies-btn-icon-text link-detail amy-fancybox">
+                                <i class="fa fa-ticket"></i> Đặt vé
+                            </a>
+                            <a href="https://youtu.be/4oxoPMxBO6s"
+                               class="fancybox.iframe amy-fancybox play-video">
+                                <i aria-hidden="true" class="fa fa-play"></i> Trailer
+                            </a>
+                        </div>
+                        <strong>Đạo diễn</strong>
+                        <p>Lưu Thành Luân</p>
+                        <strong>Diễn viên</strong>
+                        <p>Hồng Đào, Thiên An, Thuỳ Tiên, Văn Anh, Samuel An,...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            function main() {
+                // Các hàm khác có thể được định nghĩa trong hàm main
+                function bookTicket() {
+                    alert("Đặt vé thành công!");
+                }
+
+                function watchTrailer() {
+                    const trailerUrl = 'https://www.youtube.com/watch?v=example'; // Thay thế bằng link thực tế
+                    window.open(trailerUrl, '_blank'); // Mở video trailer trong tab mới
+                }
+
+                // Đặt các hàm này vào global scope để có thể truy cập từ HTML
+                window.bookTicket = bookTicket;
+                window.watchTrailer = watchTrailer;
+            }
+
+            // Gọi hàm main khi tải trang
+            window.onload = main;
+        </script>
     </main>
 </body>
 </html>
