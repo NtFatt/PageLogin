@@ -1,140 +1,58 @@
-﻿@RenderBody()
-<li>
-    <span><a href="@Url.Action("Login")">Đăng xuất</a></span>
-</li>
+﻿<style type="text/css">
+    /* Định dạng cho các mục trong submenu */
+    .submenu a {
+        display: block;
+        padding: 10px 15px;
+        color: black;
+        text-decoration: none;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+        margin-bottom: 5px;
+        opacity: 0; /* Ban đầu ẩn các mục menu */
+        max-height: 0; /* Đặt chiều cao tối đa là 0 khi không hover */
+        overflow: hidden; /* Ẩn phần thừa khi không hover */
+        transition: all 0.3s ease; /* Thêm hiệu ứng chuyển động */
+    }
 
-<li>
-    <span><a href="@Url.Action("Test3")">Đổi mật khẩu</a></span>
-</li>
-<li>
-    <span><a href="@Url.Action("Test3")">Đổi thông tin</a></span>
-</li>
-<style type="text/css">
-/* Các kiểu cho form đổi thông tin */
-.login form {
-    margin-bottom: 30px;
-}
+    /* Khi hover vào submenu, mở rộng các mục menu */
+    .submenu:hover a {
+        opacity: 1; /* Làm các mục menu hiển thị */
+        max-height: 100px; /* Mở rộng chiều cao của menu */
+    }
 
-.login form .input {
-    margin-bottom: 20px;
-}
+    .submenu a:hover {
+        background-color: #f0f0f0; /* Thêm hiệu ứng hover */
+    }
 
-.login form .input input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-}
+    /* Phần menu tóm tắt */
+    .submenu .summary {
+        display: block;
+        padding: 10px 15px;
+        color: black;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+    }
 
-.login .button button {
-    background-color: purple;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-}
-
-.login .button button:hover {
-    background-color: #7a3db0;
-}
-
-/* Thông báo thành công và lỗi */
-#updateSuccessMessage,
-#updateErrorMessage {
-    text-align: center;
-    font-size: 18px;
-    margin-top: 20px;
-}
+        /* Thêm hiệu ứng khi hover vào phần tóm tắt */
+        .submenu .summary:hover {
+            background-color: #e0e0e0;
+        }
 </style>
-<h2>Đổi Thông Tin</h2>
-<!-- Form Đổi Thông Tin -->
-<form id="updateInfoForm">
-    <div class="input">
-        <input type="text" id="newUsername" class="input1" placeholder="Tên Mới" required>
+
+@RenderBody()
+
+<div class="user-menu">
+    <!-- Menu hiện ra khi di chuột vào tên người dùng -->
+    <div class="submenu">
+        <!-- Phần tóm tắt, hiển thị "Thông tin" khi không hover -->
+        <div class="summary">Thông tin</div>
+
+        <!-- Các mục menu sẽ được ẩn khi không hover -->
+        <a href="~/Account/ProfileInfo">Đổi thông tin cá nhân</a>
+        <a href="~/Account/ChangePassword">Đổi mật khẩu</a>
+        <a href="~/Account/Logout">Đăng xuất</a>
+        <a href="@Url.Action("Login")">Đăng nhập lại</a>
     </div>
-    <div class="input">
-        <input type="email" id="newEmail" class="input1" placeholder="Email Mới" required>
-    </div>
-    <div class="button">
-        <button type="submit">Cập Nhật Thông Tin</button>
-    </div>
-</form>
-
-<h2>Đổi Mật Khẩu</h2>
-<!-- Form Đổi Mật Khẩu -->
-<form id="updatePasswordForm">
-    <div class="input">
-        <input type="password" id="oldPassword" class="input1" placeholder="Mật Khẩu Cũ" required>
-    </div>
-    <div class="input">
-        <input type="password" id="newPassword" class="input1" placeholder="Mật Khẩu Mới" required>
-    </div>
-    <div class="input">
-        <input type="password" id="confirmNewPassword" class="input1" placeholder="Xác Nhận Mật Khẩu Mới" required>
-    </div>
-    <div class="button">
-        <button type="submit">Đổi Mật Khẩu</button>
-    </div>
-</form>
-
-<!-- Thông báo -->
-<div id="updateSuccessMessage" style="display:none; color: green;">Cập nhật thành công!</div>
-<div id="updateErrorMessage" style="display:none; color: red;">Có lỗi xảy ra, vui lòng thử lại!</div>
-<section>
-    <script>
-        // Đổi thông tin người dùng
-        document.getElementById('updateInfoForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Ngừng gửi form
-
-            // Lấy dữ liệu từ form
-            const newUsername = document.getElementById('newUsername').value;
-            const newEmail = document.getElementById('newEmail').value;
-
-            // Kiểm tra tính hợp lệ của dữ liệu
-            if (newUsername.trim() === "" || newEmail.trim() === "") {
-                document.getElementById('updateErrorMessage').style.display = 'block';
-                document.getElementById('updateSuccessMessage').style.display = 'none';
-            } else {
-                // Giả sử gửi dữ liệu đi (có thể dùng AJAX hoặc API)
-                console.log("Cập nhật thông tin: ", newUsername, newEmail);
-
-                // Hiển thị thông báo thành công
-                document.getElementById('updateSuccessMessage').style.display = 'block';
-                document.getElementById('updateErrorMessage').style.display = 'none';
-            }
-        });
-
-        // Đổi mật khẩu
-        document.getElementById('updatePasswordForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Ngừng gửi form
-
-            // Lấy dữ liệu từ form
-            const oldPassword = document.getElementById('oldPassword').value;
-            const newPassword = document.getElementById('newPassword').value;
-            const confirmNewPassword = document.getElementById('confirmNewPassword').value;
-
-            // Kiểm tra tính hợp lệ của mật khẩu
-            if (oldPassword.trim() === "" || newPassword.trim() === "" || confirmNewPassword.trim() === "") {
-                document.getElementById('updateErrorMessage').style.display = 'block';
-                document.getElementById('updateSuccessMessage').style.display = 'none';
-                return;
-            }
-
-            if (newPassword !== confirmNewPassword) {
-                document.getElementById('updateErrorMessage').textContent = 'Mật khẩu mới không khớp.';
-                document.getElementById('updateErrorMessage').style.display = 'block';
-                document.getElementById('updateSuccessMessage').style.display = 'none';
-                return;
-            }
-
-            // Giả sử gửi dữ liệu đi (có thể dùng AJAX hoặc API)
-            console.log("Đổi mật khẩu: ", oldPassword, newPassword);
-
-            // Hiển thị thông báo thành công
-            document.getElementById('updateSuccessMessage').style.display = 'block';
-            document.getElementById('updateErrorMessage').style.display = 'none';
-        });
-
-    </script>
-</section>
+</div>
